@@ -11,8 +11,6 @@
    
 
 ## Overview
-
-Test contribution
   
 
 Smell is perhaps our most complicated and misunderstood sense. **SmellDB** is the first publicly available benchmark with a dataset that benchmarks AI models on olfactory data. 
