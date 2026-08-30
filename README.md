@@ -7,7 +7,7 @@
 
   
 
-[![Dataset (Training)](https://img.shields.io/badge/Dataset%20%28Training%29-Download-black)](https://smelldb.anemolabs.com/dataset/download) [![Dataset (Evaluation)](https://img.shields.io/badge/Dataset%20%28Evaluation%29-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com) [![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org) [![Leaderboard](https://img.shields.io/badge/Leaderboard-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com/leaderboard) 
+[![Dataset (Training)](https://img.shields.io/badge/Dataset%20%28Training%29-Download-black)](https://smelldb.anemolabs.com/dataset/download) [![Dataset (Evaluation)](https://img.shields.io/badge/Dataset%20%28Evaluation%29-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com) [![Leaderboard](https://img.shields.io/badge/Leaderboard-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com/leaderboard) 
    
 
 ## Overview
