@@ -1,23 +1,29 @@
+<!-- GitHub README copy of intro.md. Keep this in sync whenever intro.md is updated. -->
 
 # 🧪 SmellDB
 
   
 
->  **The first ML benchmark for artificial olfaction — evaluations coming soon.**
+>  **A benchmark for training AI models for olfaction - evaluations coming soon**
 
   
 
-[![Dataset (Training)](https://img.shields.io/badge/Dataset%20%28Training%29-Download-black)](https://smelldb.anemolabs.com/dataset/download) [![Dataset (Evaluation)](https://img.shields.io/badge/Dataset%20%28Evaluation%29-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com) [![Leaderboard](https://img.shields.io/badge/Leaderboard-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com/leaderboard) 
+[![Project Page](https://img.shields.io/badge/Project%20Page-Live-blue)](https://smelldb.anemolabs.com) [![Dataset (Training)](https://img.shields.io/badge/Dataset%20%28Training%29-Download-black)](https://smelldb.anemolabs.com/dataset/download) [![Dataset (Evaluation)](https://img.shields.io/badge/Dataset%20%28Evaluation%29-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com) [![Paper](https://img.shields.io/badge/Paper-IEEE-blue)](https://anemolabs.com/blog)
+<!-- Leaderboard pill: uncomment the badge below to add it back. -->
+<!-- [![Leaderboard](https://img.shields.io/badge/Leaderboard-Coming%20Soon-f59e0b)](https://smelldb.anemolabs.com/leaderboard) -->
    
 
 ## Overview
+
   
 
-Smell is perhaps our most complicated and misunderstood sense. **SmellDB** is the first publicly available benchmark with a dataset that benchmarks AI models on olfactory data. 
+Smell is perhaps our most complicated and misunderstood sense — and one of the last great frontiers in machine perception. SmellDB is a public dataset for olfactory AI, enabling researchers to train, compare and advance models for smell. With nearly 100 hours of sampling across 32 individual sensor units, it is currently the largest public dataset of its kind.
 
- At the moment, entries are API-first. Download the dataset, build your model, and submit predictions via our REST API. Scores are returned instantly and performance is optionally logged on a public leaderboard.
+At the moment, entries are API-first. The [project page](https://smelldb.anemolabs.com) has a Get Started script that walks you from registration to result submission in 5 steps.
 
- The held-out test data as well as the benchmark will be made available in the near future.
+Download the dataset, build your model, and submit predictions via our REST API (or python script). Scores are returned instantly and optionally saved for logging. We may open a public leaderboard in the future.
+
+**NOTE:** Submissions would be made on the Evaluation Dataset which is not yet available. You can only register and explore the training dataset at the moment.
 
   
 
@@ -60,7 +66,9 @@ Given multichannel time-series sensor data from a 32-channel electronic nose (e-
 
 ## Getting Started
 
-  ### 1. Get your API key
+Python user? Use the Get Started script on the [project page](https://smelldb.anemolabs.com) for a simpler workflow.
+
+### 1. Get your API key
 
 Register by making two API calls to `https://smelldb.anemolabs.com`.
 
@@ -84,7 +92,7 @@ curl -X POST https://smelldb.anemolabs.com/v1/user \
 
 ```bash
 curl -X POST https://smelldb.anemolabs.com/v1/user \
--H "Content-Type: application/json" \`
+-H "Content-Type: application/json" \
 -d '{"action": "request_new_api_key", "email": "you@example.com"}'
 ```
 ----------
@@ -97,9 +105,10 @@ https://smelldb.anemolabs.com/dataset/download
 
 ```text
 YOUR_DIRECTORY/
-├── dataset.csv     # sensor readings (N samples × 32 channels) and labels (final 'LABEL' column)
-
+├── dataset.csv     # flattened sensor readings and labels
 ```
+
+The dataset is a CSV file with N samples (rows). Each row is a flattened sample: the first column `s0-0` is sensor 0 at timestep 0, and the final sensor column `s31-229` is sensor 31 at timestep 229. A final `LABEL` column holds the smell class for that sample.
 
 ----------
 
@@ -133,7 +142,7 @@ response = requests.post(
     "https://smelldb.anemolabs.com/v1/evals",
     headers={
         "X-API-Key": "YOUR_API_KEY",
-        "Content-Type": "application/json",
+        "Content-Type: application/json",
     },
     json={
         "dataset_name": "smelldb-base-v1",
@@ -158,5 +167,4 @@ print(response.json())
 ``` 
 
   
-
 
